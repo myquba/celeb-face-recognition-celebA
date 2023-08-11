@@ -23,7 +23,7 @@
             formData.append('user_image', userImageInput.files[0]);
 
             try {
-                const response = await fetch('YOUR_BACKEND_URL', {
+                const response = await fetch('https://facereccel.azurewebsites.net', {
                     method: 'POST',
                     body: formData
                 });
