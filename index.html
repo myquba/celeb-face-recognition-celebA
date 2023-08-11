@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Celebrity Look-alike</title>
+</head>
+<body>
+    <h1>Celebrity Look-alike Finder</h1>
+    <form id="upload-form">
+        <input type="file" id="user-image" accept="image/*">
+        <input type="submit" value="Find My Celebrity Look-alike">
+    </form>
+    <h2 id="result"></h2>
+
+    <script>
+        const uploadForm = document.getElementById('upload-form');
+        const userImageInput = document.getElementById('user-image');
+        const resultElement = document.getElementById('result');
+
+        uploadForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData();
+            formData.append('user_image', userImageInput.files[0]);
+
+            try {
+                const response = await fetch('YOUR_BACKEND_URL', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const result = await response.text();
+                    resultElement.textContent = `Your Celebrity Look-alike: ${result}`;
+                } else {
+                    resultElement.textContent = 'Error processing the image.';
+                }
+            } catch (error) {
+                resultElement.textContent = 'An error occurred. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>
