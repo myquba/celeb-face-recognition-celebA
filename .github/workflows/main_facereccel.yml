@@ -16,8 +16,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      -  with:
-          node-version: 16  # Specify the desired Node.js version here
 
       - name: Set up Python version
         uses: actions/setup-python@v1
@@ -62,4 +60,4 @@ jobs:
         with:
           app-name: 'facereccel'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EC009DD684A74BDFA7FD3F4A291B066A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_98F06FDAF9534A878F6B34CE51CD2B9E }}
